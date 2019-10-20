@@ -28,6 +28,8 @@ namespace ContosoUniversity
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //AddDbContext:默认情况下，该方法将服务生存期设置为 Scoped。 
+            //Scoped 表示上下文对象生存期与 Web 请求生存期一致，并在 Web 请求结束时将自动调用 Dispose 方法。
             services.AddDbContext<SchoolContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
